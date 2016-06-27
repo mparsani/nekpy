@@ -9,13 +9,13 @@ class Configuration(Struct):
         elif isinstance(obj, Struct):
             self._attrs.update(obj._attrs)
 
-ROOT_DIR = expanduser("~")
-ROOT_DIR = join(expanduser("~"), 'workspace', 'research_codes', 'nek_family') # Matteo
 
 default_config = Configuration()
-default_config.makenek = join(ROOT_DIR, "NekBox/makenek")
-default_config.load    = join(ROOT_DIR, "nek-analyze/load.py")
-default_config.nekmpi  = join(ROOT_DIR, "NekBox/nekmpi")
+default_config.makenek = join(expanduser("~"), "NekBox/makenek")
+default_config.legacy  = join(expanduser("~"), "Nek5000/core/makenek")
+default_config.load    = join(expanduser("~"), "nek-analyze/load.py")
+default_config.nekmpi  = join(expanduser("~"), "NekBox/bin/nekmpi")
+default_config.tools   = join(expanduser("~"), "Nek5000/tools")
 
 # grab defaults from config files
 if exists(join(expanduser("~"), ".nekpy.json")):
